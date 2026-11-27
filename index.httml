@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EMBU ADMIN</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:#fff;font-family:Arial,sans-serif}
+header{background:#191919;padding:22px;border-bottom:2px solid #c9a451}
+header h1{color:#d9b66f;margin:0}
+header p{font-size:12px;letter-spacing:2px}
+main{max-width:1100px;margin:auto;padding:20px}
+h2{color:#d9b66f}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:#202020;border:1px solid #383838;padding:18px;border-radius:12px}
+.stat{font-size:28px;color:#d9b66f;font-weight:bold}
+input,select,textarea{
+ width:100%;padding:13px;margin:7px 0;
+ background:#252525;color:white;border:1px solid #555;
+ border-radius:7px
+}
+button{padding:12px 17px;background:#c9a451;
+ border:0;border-radius:7px;font-weight:bold;cursor:pointer}
+table{width:100%;border-collapse:collapse;min-width:550px}
+td,th{text-align:left;padding:13px;border-bottom:1px solid #444}
+th{color:#d9b66f}
+.tablewrap{overflow-x:auto}
+#dashboard{display:none}
+.note{color:#bbb;font-size:13px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>EMBU</h1>
+<strong>UPHOLSTERY & ACCESSORIES</strong>
+<p>PRIVATE ADMINISTRATION SYSTEM</p>
+</header>
+
+<main>
+
+<section id="login" class="card">
+<h2>Administrator Access</h2>
+<p>EMBU ADMIN CONTROL CENTRE</p>
+<label>Administrator username</label>
+<input value="EMBU_ADMIN" readonly>
+<label>Password</label>
+<input type="password" id="password"
+placeholder="Secure login will be connected here">
+<button onclick="login()">Continue</button>
+<p class="note" id="message">
+Preview only. Secure authentication must be configured
+before this page is published.
+</p>
+</section>
+
+<section id="dashboard">
+<h2>Welcome, EMBU_ADMIN</h2>
+<p>Business management dashboard</p>
+
+<div class="grid">
+<div class="card">Total orders
+<div class="stat" id="total">0</div></div>
+<div class="card">Pending orders
+<div class="stat" id="pending">0</div></div>
+<div class="card">Completed
+<div class="stat" id="completed">0</div></div>
+</div>
+
+<h2>Customer Requests</h2>
+<div class="card">
+<p class="note">Connect the customer ordering database
+to display real requests here.</p>
+<div class="tablewrap">
+<table>
+<thead>
+<tr>
+<th>Customer</th>
+<th>Service</th>
+<th>Phone</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="orders">
+<tr><td colspan="4">No connected orders yet.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2>Order Management</h2>
+<div class="card">
+<input id="customer" placeholder="Customer name">
+<input id="phone" placeholder="Customer phone">
+<input id="service" placeholder="Requested service">
+<select id="status">
+<option>Pending</option>
+<option>Accepted</option>
+<option>In Progress</option>
+<option>Completed</option>
+</select>
+<button onclick="addOrder()">Add preview order</button>
+</div>
+
+<h2>Business Contacts</h2>
+<div class="card">
+<p>WhatsApp: +254 722 387 541</p>
+<p>Email: BenjiBest448@gmail.com</p>
+<button onclick="contact()">Contact via WhatsApp</button>
+</div>
+</section>
+</main>
+
+<script>
+let orders=[];
+
+function login(){
+ document.getElementById("message").textContent=
+ "Secure authentication is not connected yet. This preview cannot grant private access.";
+}
+
+function addOrder(){
+ const name=document.getElementById("customer").value.trim();
+ const phone=document.getElementById("phone").value.trim();
+ const service=document.getElementById("service").value.trim();
+ const status=document.getElementById("status").value;
+
+ if(!name||!phone||!service){
+ alert("Please complete all fields.");
+ return;
+ }
+
+ orders.push({name,phone,service,status});
+ render();
+}
+
+function render(){
+ document.getElementById("orders").innerHTML=
+ orders.map(o=>`<tr>
+ <td>${escapeText(o.name)}</td>
+ <td>${escapeText(o.service)}</td>
+ <td>${escapeText(o.phone)}</td>
+ <td>${escapeText(o.status)}</td>
+ </tr>`).join("");
+
+ document.getElementById("total").textContent=orders.length;
+ document.getElementById("pending").textContent=
+ orders.filter(o=>o.status==="Pending").length;
+ document.getElementById("completed").textContent=
+ orders.filter(o=>o.status==="Completed").length;
+}
+
+function escapeText(value){
+ const el=document.createElement("span");
+ el.textContent=value;
+ return el.innerHTML;
+}
+
+function contact(){
+ window.open("https://wa.me/254722387541","_blank");
+}
+</script>
+</body>
+</html>
+vvvvvvvvvvvvvv
