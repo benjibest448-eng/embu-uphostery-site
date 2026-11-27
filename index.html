@@ -1,1 +1,329 @@
-.Please help me build and publish the EMBU UPHOLSTERY & ACCESSORIES website. I need the complete index.html source code.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMBU UPHOLSTERY & ACCESSORIES</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#101010;color:#fff}
+header{background:#080808;text-align:center;padding:35px 15px;border-bottom:3px solid #d4af37}
+header h1{color:#d4af37;margin:0;font-size:27px}
+header p{color:#ddd}
+nav{background:#1b1b1b;text-align:center;padding:14px}
+nav a{color:#d4af37;text-decoration:none;margin:0 12px;font-weight:bold}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#171717,#383020)}
+.hero h2{font-size:34px;color:#e5c45b}
+.hero p{font-size:17px;line-height:1.6}
+.btn{display:inline-block;background:#d4af37;color:#111;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+section{padding:35px 18px;max-width:950px;margin:auto}
+h2.section-title{text-align:center;color:#d4af37}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+.service{background:#202020;padding:22px;border:1px solid #8c7025;border-radius:9px;text-align:center}
+.service h3{color:#e5c45b}
+form{background:#1d1d1d;padding:22px;border-radius:10px;border:1px solid #8c7025}
+label{display:block;margin-top:15px;color:#e5c45b}
+input,select,textarea{width:100%;padding:12px;margin-top:7px;border-radius:5px;border:1px solid #777;background:#fff;color:#111;font-size:15px}
+textarea{min-height:100px}
+form button{margin-top:20px;width:100%;font-size:16px}
+.note{color:#ccc;font-size:13px;line-height:1.5}
+.contact{text-align:center;background:#202020;border-radius:10px;padding:25px}
+footer{text-align:center;background:#080808;padding:22px;color:#bbb;border-top:2px solid #d4af37}
+</style>
+</head>
+<body>
+
+<header>
+<h1>EMBU UPHOLSTERY &amp; ACCESSORIES</h1>
+<p>Comfort • Style • Quality</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#order">Place Order</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero" id="home">
+<h2>Give Your Furniture a New Look</h2>
+<p>Quality upholstery, stylish designs and professional finishing.<br>
+We help bring comfort and beauty to your space.</p>
+<a class="btn" href="#order">REQUEST A QUOTE</a>
+</div>
+
+<section id="services">
+<h2 class="section-title">OUR SERVICES</h2>
+<div class="services">
+<div class="service"><h3>Sofa Upholstery</h3><p>Refresh and restore your sofas.</p></div>
+<div class="service"><h3>Car Seats</h3><p>Vehicle seat upholstery and interior finishing.</p></div>
+<div class="service"><h3>Dining Chairs</h3><p>Beautiful chair repairs and coverings.</p></div>
+<div class="service"><h3>Curtains &amp; Accessories</h3><p>Stylish finishing for your space.</p></div>
+<div class="service"><h3>Custom Furniture</h3><p>Custom furniture and other projects.</p></div>
+</div>
+</section>
+
+<section id="order">
+<h2 class="section-title">PLACE YOUR ORDER</h2>
+<p>Fill in your details to request a quotation.</p>
+
+<form id="orderForm">
+<label>Full Name *</label>
+<input id="customerName" type="text" required placeholder="Your full name">
+
+<label>Phone Number *</label>
+<input id="phone" type="tel" required placeholder="Your phone number">
+
+<label>Email Address</label>
+<input id="email" type="email" placeholder="Your email address">
+
+<label>Select a Service *</label>
+<select id="service" required>
+<option value="">Choose a service</option>
+<option>Sofa Upholstery</option>
+<option>Vehicle / Car Seat Upholstery</option>
+<option>Dining Chairs</option>
+<option>Curtains & Accessories</option>
+<option>Custom Furniture</option>
+<option>Other</option>
+</select>
+
+<label>Describe Your Project *</label>
+<textarea id="description" required placeholder="Tell us what you need..."></textarea>
+
+<label>Measurements</label>
+<input id="measurements" type="text" placeholder="Enter measurements if available">
+
+<label>Your Budget and Currency</label>
+<input id="budget" type="text" placeholder="Example: KES 20,000">
+
+<label>Preferred Delivery Date</label>
+<input id="delivery" type="date">
+
+<label>Delivery Preference</label>
+<select id="deliveryPreference">
+<option>Discuss with me</option>
+<option>Collect from workshop</option>
+<option>Delivery required</option>
+</select>
+
+<label>Attach Project Photos</label>
+<input id="photos" type="file" accept="image/*" multiple>
+<p class="note">You can select multiple photos. After WhatsApp opens, attach the selected photos to your message manually.</p>
+
+<button class="btn" type="submit">SUBMIT ORDER ON WHATSAPP</button>
+</form>
+</section>
+
+<section id="contact">
+<div class="contact">
+<h2 class="section-title">CONTACT US</h2>
+<p>WhatsApp: +254 722 387 541</p>
+<a class="btn" href="https://wa.me/254722387541">CHAT WITH US</a>
+</div>
+</section>
+
+<footer>
+<p>EMBU UPHOLSTERY &amp; ACCESSORIES</p>
+<p>Comfort • Style • Quality</p>
+<p>&copy; 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit",function(event){
+event.preventDefault();
+
+const fields = [
+["Customer",document.getElementById("customerName").value],
+["Phone",document.getElementById("phone").value],
+["Email",document.getElementById("email").value],
+["Service",document.getElementById("service").value],
+["Project details",document.getElementById("description").value],
+["Measurements",document.getElementById("measurements").value],
+["Budget",document.getElementById("budget").value],
+["Preferred delivery date",document.getElementById("delivery").value],
+["Delivery preference",document.getElementById("deliveryPreference").value]
+];
+
+let message="NEW WEBSITE ORDER - EMBU UPHOLSTERY & ACCESSORIES\n\n";
+fields.forEach(function(field){
+message += field[0] + ": " + (field[1] || "Not provided") + "\n";
+});
+
+const photoCount=document.getElementById("photos").files.length;
+message += "\nNumber of selected photos: " + photoCount;
+message += "\nI will attach my project photos in WhatsApp.";
+
+const whatsappURL="https://wa.me/254722387541?text="+encodeURIComponent(message);
+window.open(whatsappURL,"_blank");
+});
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMBU UPHOLSTERY & ACCESSORIES</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#101010;color:#fff}
+header{background:#080808;text-align:center;padding:35px 15px;border-bottom:3px solid #d4af37}
+header h1{color:#d4af37;margin:0;font-size:27px}
+header p{color:#ddd}
+nav{background:#1b1b1b;text-align:center;padding:14px}
+nav a{color:#d4af37;text-decoration:none;margin:0 12px;font-weight:bold}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#171717,#383020)}
+.hero h2{font-size:34px;color:#e5c45b}
+.hero p{font-size:17px;line-height:1.6}
+.btn{display:inline-block;background:#d4af37;color:#111;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+section{padding:35px 18px;max-width:950px;margin:auto}
+h2.section-title{text-align:center;color:#d4af37}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+.service{background:#202020;padding:22px;border:1px solid #8c7025;border-radius:9px;text-align:center}
+.service h3{color:#e5c45b}
+form{background:#1d1d1d;padding:22px;border-radius:10px;border:1px solid #8c7025}
+label{display:block;margin-top:15px;color:#e5c45b}
+input,select,textarea{width:100%;padding:12px;margin-top:7px;border-radius:5px;border:1px solid #777;background:#fff;color:#111;font-size:15px}
+textarea{min-height:100px}
+form button{margin-top:20px;width:100%;font-size:16px}
+.note{color:#ccc;font-size:13px;line-height:1.5}
+.contact{text-align:center;background:#202020;border-radius:10px;padding:25px}
+footer{text-align:center;background:#080808;padding:22px;color:#bbb;border-top:2px solid #d4af37}
+</style>
+</head>
+<body>
+
+<header>
+<h1>EMBU UPHOLSTERY &amp; ACCESSORIES</h1>
+<p>Comfort • Style • Quality</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#order">Place Order</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero" id="home">
+<h2>Give Your Furniture a New Look</h2>
+<p>Quality upholstery, stylish designs and professional finishing.<br>
+We help bring comfort and beauty to your space.</p>
+<a class="btn" href="#order">REQUEST A QUOTE</a>
+</div>
+
+<section id="services">
+<h2 class="section-title">OUR SERVICES</h2>
+<div class="services">
+<div class="service"><h3>Sofa Upholstery</h3><p>Refresh and restore your sofas.</p></div>
+<div class="service"><h3>Car Seats</h3><p>Vehicle seat upholstery and interior finishing.</p></div>
+<div class="service"><h3>Dining Chairs</h3><p>Beautiful chair repairs and coverings.</p></div>
+<div class="service"><h3>Curtains &amp; Accessories</h3><p>Stylish finishing for your space.</p></div>
+<div class="service"><h3>Custom Furniture</h3><p>Custom furniture and other projects.</p></div>
+</div>
+</section>
+
+<section id="order">
+<h2 class="section-title">PLACE YOUR ORDER</h2>
+<p>Fill in your details to request a quotation.</p>
+
+<form id="orderForm">
+<label>Full Name *</label>
+<input id="customerName" type="text" required placeholder="Your full name">
+
+<label>Phone Number *</label>
+<input id="phone" type="tel" required placeholder="Your phone number">
+
+<label>Email Address</label>
+<input id="email" type="email" placeholder="Your email address">
+
+<label>Select a Service *</label>
+<select id="service" required>
+<option value="">Choose a service</option>
+<option>Sofa Upholstery</option>
+<option>Vehicle / Car Seat Upholstery</option>
+<option>Dining Chairs</option>
+<option>Curtains & Accessories</option>
+<option>Custom Furniture</option>
+<option>Other</option>
+</select>
+
+<label>Describe Your Project *</label>
+<textarea id="description" required placeholder="Tell us what you need..."></textarea>
+
+<label>Measurements</label>
+<input id="measurements" type="text" placeholder="Enter measurements if available">
+
+<label>Your Budget and Currency</label>
+<input id="budget" type="text" placeholder="Example: KES 20,000">
+
+<label>Preferred Delivery Date</label>
+<input id="delivery" type="date">
+
+<label>Delivery Preference</label>
+<select id="deliveryPreference">
+<option>Discuss with me</option>
+<option>Collect from workshop</option>
+<option>Delivery required</option>
+</select>
+
+<label>Attach Project Photos</label>
+<input id="photos" type="file" accept="image/*" multiple>
+<p class="note">You can select multiple photos. After WhatsApp opens, attach the selected photos to your message manually.</p>
+
+<button class="btn" type="submit">SUBMIT ORDER ON WHATSAPP</button>
+</form>
+</section>
+
+<section id="contact">
+<div class="contact">
+<h2 class="section-title">CONTACT US</h2>
+<p>WhatsApp: +254 722 387 541</p>
+<a class="btn" href="https://wa.me/254722387541">CHAT WITH US</a>
+</div>
+</section>
+
+<footer>
+<p>EMBU UPHOLSTERY &amp; ACCESSORIES</p>
+<p>Comfort • Style • Quality</p>
+<p>&copy; 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit",function(event){
+event.preventDefault();
+
+const fields = [
+["Customer",document.getElementById("customerName").value],
+["Phone",document.getElementById("phone").value],
+["Email",document.getElementById("email").value],
+["Service",document.getElementById("service").value],
+["Project details",document.getElementById("description").value],
+["Measurements",document.getElementById("measurements").value],
+["Budget",document.getElementById("budget").value],
+["Preferred delivery date",document.getElementById("delivery").value],
+["Delivery preference",document.getElementById("deliveryPreference").value]
+];
+
+let message="NEW WEBSITE ORDER - EMBU UPHOLSTERY & ACCESSORIES\n\n";
+fields.forEach(function(field){
+message += field[0] + ": " + (field[1] || "Not provided") + "\n";
+});
+
+const photoCount=document.getElementById("photos").files.length;
+message += "\nNumber of selected photos: " + photoCount;
+message += "\nI will attach my project photos in WhatsApp.";
+
+const whatsappURL="https://wa.me/254722387541?text="+encodeURIComponent(message);
+window.open(whatsappURL,"_blank");
+});
+</script>
+
+</body>
+</html>
+
